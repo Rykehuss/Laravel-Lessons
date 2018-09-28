@@ -8,7 +8,7 @@
                     <div class="panel-heading">BOOKS</div>
 
                     <div class="panel-body">
-                        {{--{{ link_to_route('book.create', 'Create', null, ['class' => 'btn btn-info btn-xs']) }}--}}
+                        {{ link_to_route('book.create', 'Create', null, ['class' => 'btn btn-info btn-xs']) }}
                         <table class="table table-bordered table-responsive table-striped">
                             <tr>
                                 <th width="10%">id</th>
@@ -31,12 +31,13 @@
                                     <td>{{$book->id}}</td>
                                     <td>{{$book->title}}</td>
                                     <td>{{$book->author}}</td>
+                                    <td>{{$book->price}}</td>
                                     <td>
-                                        {{--{{Form::open(['class' => 'confirm-delete', 'route' => ['post.destroy', $book->id], 'method' => 'DELETE'])}}--}}
-                                        {{--{{ link_to_route('post.show', 'info', [$book->id], ['class' => 'btn btn-info btn-xs']) }} |--}}
-                                        {{--{{ link_to_route('post.edit', 'edit', [$book->id], ['class' => 'btn btn-success btn-xs']) }}--}}
-                                        {{--{{Form::button('Delete', ['class' => 'btn btn-danger btn-xs', 'type' => 'submit'])}}--}}
-                                        {{--{{Form::close()}}--}}
+                                        {{Form::open(['class' => 'confirm-delete', 'route' => ['book.destroy', $book->id], 'method' => 'DELETE'])}}
+                                        {{ link_to_route('book.show', 'info', [$book->id], ['class' => 'btn btn-info btn-xs']) }} |
+                                        {{ link_to_route('book.edit', 'edit', [$book->id], ['class' => 'btn btn-success btn-xs']) }}
+                                        {{Form::button('Delete', ['class' => 'btn btn-danger btn-xs', 'type' => 'submit'])}}
+                                        {{Form::close()}}
                                     </td>
 
                                 </tr>
